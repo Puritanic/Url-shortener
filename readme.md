@@ -22,3 +22,7 @@ Now to put it all together to generate a shorter URL, I need to:
 * Storing it in the database using the models we created in the previous section
 * Encoding the _id of the newly inserted object
 * Returning the shortened version of the URL to the user
+
+* Check if the URL has already been shortened to avoid creating duplicates:
+    * If it has been shortened, return the base58 encoded ID right away
+    * If it hasn't been shortened, we will create a new entry for it
