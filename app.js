@@ -5,11 +5,11 @@ var bodyParser  = require('body-parser'),
     base58      = require('./base58'), // base58 for encoding and decoding functions
     config      = require('./config'),
     path        = require('path'), // path module to correctly concatenate our paths
-    url         = require('./models/url'),
+    Url         = require('./models/url'),
     app         = express();
 
     // create a connection to MongoDB
-mongoose.connect('mongodb://' + config.db.host + '/' + config.db.name);
+mongoose.createConnection('mongodb://' + config.db.host + '/' + config.db.name);
 
 
     // handles JSON bodies
@@ -88,7 +88,7 @@ app.get('/:encoded_id', function (req, res) {
             res.redirect(config.webhost);
         }
      });
- });
+ });    
 
 var server = app.listen(3000, function () { 
     console.log('Server up and running on port 3000');
