@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     Schema   = mongoose.Schema;
 
 // create the counters schema with an _id field and a seq field
-var CounterSchema  = new Schema({
+var CounterSchema  = Schema({
     _id: {
         type: String,
         required: true
@@ -36,7 +36,7 @@ urlSchema.pre('save', function (next) {
     // find the url_count and increment it by 1
     counter.findByIdAndUpdate({_id: 'url_count'}, {$inc: {seq:1}}, function (err, counter) { 
         if (err)
-            return next(error);
+            return next(err);
         // set the _id of the urls collection to the incremented value of the counter
         doc._id = counter.seq;
         doc.created_at = new Date();

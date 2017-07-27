@@ -14,7 +14,8 @@ $('.btn-shorten').on('click', function () {
         },
         success: function (data) { 
             // display the shortened URL to the user that is returned by the server
-            var resultHTML = '<a  class="result" href="' + data.shortUrl + '">' + data.shortUrl + '</a>';
+            var resultHTML = '<a  class="result" href="' + data.shortUrl + '">'
+             + data.shortUrl + '</a>';
             $('#link').html(resultHTML);
             $('#link').hide().fadeIn('slow');
          }

@@ -2,15 +2,15 @@
 var bodyParser  = require('body-parser'),
     mongoose    = require('mongoose'),
     express     = require('express'),
-    base58      = require('./base58'), // base58 for encoding and decoding functions
+    base58      = require('./base58.js'), // base58 for encoding and decoding functions
     config      = require('./config'),
     path        = require('path'), // path module to correctly concatenate our paths
     Url         = require('./models/url'),
     app         = express();
 
     // create a connection to MongoDB
-mongoose.createConnection('mongodb://' + config.db.host + '/' + config.db.name);
-
+// mongoose.createConnection('mongodb://' + config.db.host + '/' + config.db.name);
+mongoose.connect('mongodb://' + config.db.host + '/' + config.db.name);
 
     // handles JSON bodies
 app.use(bodyParser.json());

@@ -7,7 +7,7 @@ function encode(num) {
     while (num) {
         var remainder = num % base;
         num = Math.floor(num / base);
-        encoded = alphabet[reaminder].toString() + encoded;
+        encoded = alphabet[remainder].toString() + encoded;
     }
     return encoded;
 }
