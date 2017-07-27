@@ -26,3 +26,8 @@ Now to put it all together to generate a shorter URL, I need to:
 * Check if the URL has already been shortened to avoid creating duplicates:
     * If it has been shortened, return the base58 encoded ID right away
     * If it hasn't been shortened, we will create a new entry for it
+
+* When someone visits a URL shortened by our service such as shortr.io/3Ys, we want to:
+    * Take the 3Ys from the URL
+    * Decode it to get the unique _id of our document in the urls collection
+    * Redirect them to the associated long_url in that document
